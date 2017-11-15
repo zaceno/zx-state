@@ -13,7 +13,7 @@ function mapObj(orig, fn, onto) {
   }
   
   function collectSubs(opts, prop) {
-    return mapObj(opts.sub, sub => ({...collectSubs(sub, prop)}), opts[prop])
+    return mapObj(opts.sub, sub => Object.assign({}, collectSubs(sub, prop)), opts[prop])
   }
   
   function onceNextTick (fn) {
