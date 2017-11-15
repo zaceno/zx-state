@@ -1,0 +1,19 @@
+{
+  "name": "zx-state",
+  "version": "0.0.1",
+  "description": "state management library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaceno/zx-state.git"
+  },
+  "author": "Zacharias Enochsson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaceno/zx-state/issues"
+  },
+  "homepage": "https://github.com/zaceno/zx-state#readme"
+}
