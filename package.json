@@ -1,6 +1,6 @@
 {
   "name": "zx-state",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "state management library",
   "main": "dist/zx-state.umd.js",
   "module": "src/index.js",
