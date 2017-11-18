@@ -5,7 +5,7 @@ import {minify} from 'uglify-es'
 export default {
   input: 'src/index.js',
   output: {
-    file: 'dist/zx-app.umd.js',
+    file: 'dist/zx-state.umd.js',
     sourcemap: true,
     format: 'iife',
     name: 'zxState'

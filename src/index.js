@@ -2,7 +2,7 @@ function mapObj(orig, fn, onto) {
     return Object.keys((orig || {})).reduce((o, name) => {
         o[name] = fn(orig[name], name, o)
         return o
-    }, (onto || {}))
+    }, (onto || {}))
 } 
 
 function bindFnCollection(binder, collection, ...more) {
@@ -16,28 +16,25 @@ function collectSubs(opts, prop) {
     return mapObj(opts.sub, sub => Object.assign({}, collectSubs(sub, prop)), opts[prop])
 }
 
-function onceNextTick (fn) {
+function machine (opts, notify) {
     var pending;
-    return _ => {
+
+    const update = _ => {
         if (pending) return
         pending = !pending
         setTimeout(_ => {
-        pending = !pending
-        fn()
+           pending = !pending
+           notify && notify()
         }, 0)
     }
-}
-
-export default function (opts, notify) {
     
-    const update = onceNextTick(notify || (_ => {})) 
     const state = collectSubs(opts, 'state')
 
     const actions = bindFnCollection(
-        (fn, A, S) =>  (...args) => {
-            var ret = fn(A, A, ...args)
-            if (!ret) return
-            Object.assign(state, ret)
+        (fn, actions, state) =>  (...args) => {
+            var data = fn(state, actions, ...args)
+            if (!data) return
+            Object.assign(state, data)
             update()
         },
         collectSubs(opts, 'actions'),
@@ -52,5 +49,6 @@ export default function (opts, notify) {
     )
 
     update()
+
     return {actions, views}
 }
