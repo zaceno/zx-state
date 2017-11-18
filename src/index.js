@@ -16,7 +16,7 @@ function collectSubs(opts, prop) {
     return mapObj(opts.sub, sub => Object.assign({}, collectSubs(sub, prop)), opts[prop])
 }
 
-function machine (opts, notify) {
+export default function (opts, notify) {
     var pending;
 
     const update = _ => {
