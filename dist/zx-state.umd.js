@@ -1,2 +1,2 @@
-!function(){"use strict"}();
+var zxState=function(){"use strict";function t(t,n,e){return Object.keys(t||{}).reduce((e,r)=>(e[r]=n(t[r],r,e),e),e||{})}function n(e,r,...s){return t(r,(t,r,u)=>"function"==typeof t?e(t,u,...s):n(e,t,...s.map(t=>t[r])))}function e(n,r){return t(n.sub,t=>Object.assign({},e(t,r)),n[r])}return function(t,r){var s;const u=t=>{s||(s=!s,setTimeout(t=>{s=!s,r&&r()},0))},c=e(t,"state"),i=n((t,n,e)=>(...r)=>{var s=t(e,n,...r);s&&(Object.assign(e,s),u())},e(t,"actions"),c),o=n((t,n,e,r)=>(...s)=>t(e,r,n,...s),e(t,"views"),c,i);return u(),{actions:i,views:o}}}();
 //# sourceMappingURL=zx-state.umd.js.map
