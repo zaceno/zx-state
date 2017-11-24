@@ -1,2 +1,36 @@
 # zx-state
 state management library
+
+Basic counter example (using picodom for rendering)
+
+[Live example](https://codepen.io/zaceno/pen/VrdzYB?editors=0010)
+
+```
+import {h, patch} from 'picodom'
+/** @jsx h */
+
+//define the main app component
+function counter (store) {
+    store.set({ value: 0 })
+    
+    const increment = store.with(state => store.set({value: state.value + 1}))
+    const decrement = store.with(state => store.set({value: state.value - 1}))
+    
+    //return a view-function bound to the state, that renders the counter
+    return store.with(state => (
+        <div>
+            <button onclick={decrement}> - </button>
+            {state.value}
+            <button onclick={increment}> + </button>
+        </div>
+    ))    
+}
+
+
+//run the app:
+
+var node
+const view = zxState(counter, _ => patch(node, (node = view())))
+
+```
+
