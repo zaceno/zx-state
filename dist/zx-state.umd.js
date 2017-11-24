@@ -1,2 +1,2 @@
-var zxState=function(){"use strict";return(t,e)=>{var r=!1;const n=t=>e=>"function"==typeof e?t(e):Object.keys(e).reduce((r,n)=>(r[n]=t(e[n]),r),{}),s=t=>{var c={};return{set:t=>{c=Object.assign({},c,t),r||(r=!r,setTimeout(t=>{r=!r,e()}))},with:n(t=>(...e)=>t(c,...e)),sync:n((t,...e)=>t(s(),...e))}};return t(s())}}();
+var zxState=function(){"use strict";return(t,e)=>{var r=!1;const n=t=>{var s={};return{set:t=>{s=Object.assign({},s,t),r||(r=!r,setTimeout(t=>{r=!r,e()}))},with:(t=>e=>"function"==typeof e?t(e):Object.keys(e).reduce((r,n)=>(r[n]=t(e[n]),r),{}))(t=>(...e)=>t(s,...e)),sync:(t,...e)=>t(n(),...e)}};return t(n())}}();
 //# sourceMappingURL=zx-state.umd.js.map

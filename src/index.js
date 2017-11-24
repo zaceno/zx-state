@@ -20,7 +20,7 @@ export default (main, onupdate) => {
                 })
             },
             with: mapFunctionCollection(f => (...args) => f(state, ...args)),
-            sync: mapFunctionCollection((f, ...args) => f(store(), ...args)),
+            sync: (f, ...args) => f(store(), ...args),
         }
     }
     return main(store())
