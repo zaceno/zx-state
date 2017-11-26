@@ -2,6 +2,8 @@
 
 A minimalistic and unfancy state management library for building web apps with virtual dom. Very much in an exploration phase.
 
+Traditional [TodoMVC Example](https://codepen.io/zaceno/pen/eejdjE?editors=0010) (feel free to improve it :) )
+
 ## Basic usage
 
 Basic counter example (using picodom for rendering)
